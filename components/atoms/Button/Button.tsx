@@ -38,13 +38,14 @@ export default function Button({
 
   const renderChildren = () => {
     if (React.isValidElement(children)) {
-      return React.cloneElement(children, {
+      const child = children as React.ReactElement<any>;
+      return React.cloneElement(child, {
         style: {
-          ...children.props.style,
+          ...(child.props.style ?? {}),
           fontSize: ButtonStyle.size.fontSize,
         },
         color: ButtonStyle.color.color,
-      } as TextProps);
+      });
     } else if (typeof children === "string") {
       return (
         <Typo

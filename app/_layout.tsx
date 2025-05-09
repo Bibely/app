@@ -58,9 +58,10 @@ export default function RootLayout() {
     <ThemeProvider
       value={theme === "dark" ? CustomDarkTheme : CustomDefaultTheme}
     >
-      <Stack initialRouteName="(tabs)">
+      <Stack initialRouteName="(onboard)">
         {/* <Stack.Screen name="index" options={{ headerShown: false }} /> */}
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(onboard)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
