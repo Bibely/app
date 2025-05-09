@@ -1,7 +1,7 @@
-import { TextStyle, ViewStyle } from 'react-native';
-import { ButtonSize, ButtonVariant } from './Button.type';
-import { Color } from '@/constants/color';
-import { ThemeColorType, VariantColorType } from '@/types/color';
+import { TextStyle, ViewStyle } from "react-native";
+import { ButtonSize, ButtonVariant } from "./Button.type";
+import { Color } from "@/constants/token/color";
+import { ThemeColorType, VariantColorType } from "@/types/color";
 
 /**
  * 버튼 variant에 따른 색상 스타일을 반환하는 함수
@@ -23,49 +23,49 @@ import { ThemeColorType, VariantColorType } from '@/types/color';
  * - TEXT: 배경색 없는 텍스트 버튼
  */
 export function getButtonColorByVariant(
-    variant: ButtonVariant,
-    theme: ThemeColorType,
+  variant: ButtonVariant,
+  theme: ThemeColorType
 ): ViewStyle & TextStyle {
-    switch (variant) {
-        case ButtonVariant.BRAND:
-            return {
-                backgroundColor: Color[theme].brand50,
-                color: 'white',
-            };
-        case ButtonVariant.SECONDARY:
-            return {
-                backgroundColor: Color[theme].gray20,
-                color: 'textSecondary',
-            };
-        case ButtonVariant.DANGER:
-            return {
-                backgroundColor: Color[theme].error50,
-                color: 'white',
-            };
-        case ButtonVariant.SUCCESS:
-            return {
-                backgroundColor: Color[theme].success50,
-                color: 'white',
-            };
-        case ButtonVariant.WARNING:
-            return {
-                backgroundColor: Color[theme].warning50,
-                color: 'black',
-            };
-        case ButtonVariant.TEXT:
-            return {
-                backgroundColor: 'transparent',
-                color: 'text',
-                padding: 10,
-                borderRadius: 5,
-            };
-        default:
-            return {
-                backgroundColor: 'blue',
-                padding: 10,
-                borderRadius: 5,
-            };
-    }
+  switch (variant) {
+    case ButtonVariant.BRAND:
+      return {
+        backgroundColor: Color[theme].brand50,
+        color: "white",
+      };
+    case ButtonVariant.SECONDARY:
+      return {
+        backgroundColor: Color[theme].gray20,
+        color: "textSecondary",
+      };
+    case ButtonVariant.DANGER:
+      return {
+        backgroundColor: Color[theme].error50,
+        color: "white",
+      };
+    case ButtonVariant.SUCCESS:
+      return {
+        backgroundColor: Color[theme].success50,
+        color: "white",
+      };
+    case ButtonVariant.WARNING:
+      return {
+        backgroundColor: Color[theme].warning50,
+        color: "black",
+      };
+    case ButtonVariant.TEXT:
+      return {
+        backgroundColor: "transparent",
+        color: "text",
+        padding: 10,
+        borderRadius: 5,
+      };
+    default:
+      return {
+        backgroundColor: "blue",
+        padding: 10,
+        borderRadius: 5,
+      };
+  }
 }
 
 /**
@@ -78,33 +78,33 @@ export function getButtonColorByVariant(
  *   - default: 높이 30px
  */
 export function getButtonStyleByVariant(
-    size: ButtonSize,
+  size: ButtonSize
 ): ViewStyle & TextStyle {
-    switch (size) {
-        case ButtonSize.LARGE:
-            return {
-                height: 56,
-                borderRadius: 14,
-                fontSize: 17,
-                paddingHorizontal: 20,
-            };
-        case ButtonSize.MEDIUM:
-            return {
-                height: 46,
-                borderRadius: 12,
-                fontSize: 15,
-                paddingHorizontal: 16,
-            };
-        case ButtonSize.SMALL:
-            return {
-                height: 38,
-                borderRadius: 8,
-                fontSize: 12,
-                paddingHorizontal: 12,
-            };
-        default:
-            return {
-                height: 30,
-            };
-    }
+  switch (size) {
+    case ButtonSize.LARGE:
+      return {
+        height: 56,
+        borderRadius: 14,
+        fontSize: 17,
+        paddingHorizontal: 20,
+      };
+    case ButtonSize.MEDIUM:
+      return {
+        height: 46,
+        borderRadius: 12,
+        fontSize: 15,
+        paddingHorizontal: 16,
+      };
+    case ButtonSize.SMALL:
+      return {
+        height: 38,
+        borderRadius: 8,
+        fontSize: 12,
+        paddingHorizontal: 12,
+      };
+    default:
+      return {
+        height: 30,
+      };
+  }
 }

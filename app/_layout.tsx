@@ -1,4 +1,4 @@
-import { Color } from "@/constants/color";
+import { Color } from "@/constants/token/color";
 import { useTheme } from "@/hooks/useTheme";
 import {
   DarkTheme,
