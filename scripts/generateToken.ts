@@ -20,7 +20,7 @@ const CONFIG = {
   tokenPath: path.resolve(__dirname, "../token/token.json"),
   // 생성될 상수 파일 디렉토리
   output: {
-    constants: path.resolve(__dirname, "../constants/"),
+    constants: path.resolve(__dirname, "../constants/token/"),
   },
 } as const;
 
