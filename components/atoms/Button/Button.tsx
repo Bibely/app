@@ -4,7 +4,6 @@ import {getButtonColorByVariant, getButtonStyleByVariant,} from "./Button.util";
 import React from "react";
 import {useTheme} from "@/hooks/useTheme";
 import {useButtonAnimation} from "@/hooks/components";
-import {Color} from "@/constants/token/color";
 import {VariantColorType} from "@/types/color";
 import {Typo, TypoWeight} from "../Typo";
 
@@ -71,12 +70,7 @@ export default function Button({
         {isPending ? (
           <ActivityIndicator
             size={24}
-            color={
-              variant === ButtonVariant.SECONDARY ||
-              variant === ButtonVariant.SUCCESS
-                ? Color[theme].white
-                : Color[theme].black
-            }
+            color={ButtonStyle.color.color}
           />
         ) : (
           renderChildren()
