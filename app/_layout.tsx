@@ -1,16 +1,17 @@
 import 'react-native-reanimated';
 
+import '@/i18n';
+
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useTheme } from '@/hooks/useTheme';
 import { Color } from '@/constants/token';
-
-import '@/utils/locale/il8n';
 
 const CustomDefaultTheme = {
   ...DefaultTheme,
@@ -39,6 +40,7 @@ export default function RootLayout() {
     PretendardBold: require('../assets/fonts/Pretendard-Bold.otf'),
     BookkMyungjo: require('../assets/fonts/BookkMyungjo.ttf'),
   });
+  const { i18n } = useTranslation();
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -47,7 +49,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (loaded) {
-      console.log(loaded);
+      i18n.changeLanguage('en');
       SplashScreen.hideAsync();
     }
   }, [loaded]);

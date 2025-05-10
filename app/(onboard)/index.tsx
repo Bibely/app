@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Typo, VStack } from '@/components/atoms';
 import { Icon } from '@/components/icon/glyph';
 import SocialLogin from '@/components/molecules/SocialLogin/SocialLogin';
@@ -7,19 +9,19 @@ import { useTheme } from '@/hooks/useTheme';
 
 export default function Onboard() {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   return (
     <>
       <VStack bgColor={'transparent'} gap={Spacing.large}>
         <Icon.quote size={52} color={Color[theme].brand10} />
         <Typo size={30} readingMode>
-          모든 성경은 하나님의 {'\n'}감동으로 된 것으로{'\n'}교훈과 책망과{'\n'}바르게 함과 의로
-          교육하기 유익하니
+          {t('onboarding.bibleContent')}
         </Typo>
         <Typo.Subtitle color={'textSecondary'} readingMode>
-          디모데후서 3장 16절
+          {t('onboarding.bibleTitle')}
         </Typo.Subtitle>
-        <Typo.Body color={'textTertiary'}>- King James Version</Typo.Body>
+        <Typo.Body color={'textTertiary'}>- {t('onboarding.bibleVersion')}</Typo.Body>
       </VStack>
       <VStack bgColor={'transparent'} fullWidth gap={Spacing.large}>
         <VStack bgColor={'transparent'} gap={Spacing.medium}>
