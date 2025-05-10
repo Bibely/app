@@ -1,11 +1,11 @@
-import {ReactElement, ReactNode} from "react";
+import { ReactNode } from "react";
 
 export interface ComponentPropsForTest {
     testID?: string;
 }
 
-export interface WithChildren<T = unknown> {
-    children: ReactElement<T>;
+export interface WithChildren {
+    children: ReactNode;
 }
 
 export interface SVGProps {

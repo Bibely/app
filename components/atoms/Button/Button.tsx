@@ -1,22 +1,12 @@
-import {
-  TouchableOpacity,
-  StyleSheet,
-  TextProps,
-  Animated,
-  Text,
-  ActivityIndicator,
-} from "react-native";
-import { ButtonProps, ButtonSize, ButtonVariant } from "./Button.type";
-import {
-  getButtonColorByVariant,
-  getButtonStyleByVariant,
-} from "./Button.util";
+import {ActivityIndicator, Animated, StyleSheet, TouchableOpacity,} from "react-native";
+import {ButtonProps, ButtonSize, ButtonVariant} from "./Button.type";
+import {getButtonColorByVariant, getButtonStyleByVariant,} from "./Button.util";
 import React from "react";
-import { useTheme } from "@/hooks/useTheme";
-import { useButtonAnimation } from "@/hooks/components";
-import { Color } from "@/constants/token/color";
-import { VariantColorType } from "@/types/color";
-import { Typo } from "../Typo";
+import {useTheme} from "@/hooks/useTheme";
+import {useButtonAnimation} from "@/hooks/components";
+import {Color} from "@/constants/token/color";
+import {VariantColorType} from "@/types/color";
+import {Typo, TypoWeight} from "../Typo";
 
 export default function Button({
   children,
@@ -38,19 +28,15 @@ export default function Button({
 
   const renderChildren = () => {
     if (React.isValidElement(children)) {
-      const child = children as React.ReactElement<any>;
-      return React.cloneElement(child, {
-        style: {
-          ...(child.props.style ?? {}),
-          fontSize: ButtonStyle.size.fontSize,
-        },
-        color: ButtonStyle.color.color,
-      });
+      console.log("children", children);
+      return React.cloneElement(children);
     } else if (typeof children === "string") {
+      console.log("text", children);
       return (
         <Typo
           size={ButtonStyle.size.fontSize}
           color={ButtonStyle.color.color as VariantColorType}
+          weight={TypoWeight.SemiBold}
         >
           {children}
         </Typo>
