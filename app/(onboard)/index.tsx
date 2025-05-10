@@ -29,8 +29,12 @@ export default function Onboard() {
           <SocialLogin platform={SocialLoginPlatform.APPLE} onPress={() => {}} />
         </VStack>
         <Typo size={12} textAlign={'center'} color={'textTertiary'}>
-          저희는 개인정보를 중요하게 생각합니다.{'\n'}가입함으로써 다음 사항에 동의하게 됩니다. 약관
-          그리고 개인정보 취급 처리방침
+          {t('onboarding.consent.notice')}
+          {'\n'}
+          {t('onboarding.consent.terms')}
+          {t('onboarding.consent.and')}
+          {t('onboarding.consent.privacy')}
+          {t('onboarding.consent.agreeSuffix')}
         </Typo>
       </VStack>
     </>
