@@ -28,10 +28,8 @@ export default function Button({
 
   const renderChildren = () => {
     if (React.isValidElement(children)) {
-      console.log("children", children);
       return React.cloneElement(children);
     } else if (typeof children === "string") {
-      console.log("text", children);
       return (
         <Typo
           size={ButtonStyle.size.fontSize}

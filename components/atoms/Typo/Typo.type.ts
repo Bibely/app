@@ -19,6 +19,10 @@ export interface TypoStyleProps {
     maxWidth?: boolean; // 추가: 텍스트 최대 너비
 
     color?: VariantColorType;
+
+    lineHeight?: number;
+
+    readingMode?: boolean,
 }
 
 export interface TypoProps extends WithChildren, ComponentPropsForTest, TypoStyleProps {

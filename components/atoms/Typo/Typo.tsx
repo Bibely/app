@@ -17,6 +17,7 @@ function TypoBase(props: TypoProps) {
     weight = Typography.fontWeight.medium,
     maxWidth,
     testID,
+    readingMode, lineHeight
   } = props;
 
   const textStyle: TextStyle = {
@@ -25,12 +26,16 @@ function TypoBase(props: TypoProps) {
     fontSize: size,
     fontWeight: weight.toString() as TextStyle["fontWeight"],
     color: Color[theme][color],
+    fontFamily: readingMode ? "BookkMyungjo" : "Wanted Sans",
+    lineHeight: readingMode ? size * 1.4 : lineHeight,
     ...style,
   };
 
   return (
     <Text
-      style={textStyle}
+      allowFontScaling={true}
+      maxFontSizeMultiplier={1.03}
+      style={{...textStyle}}
       numberOfLines={numberOfLines}
       ellipsizeMode={ellipsizeMode}
       testID={testID}
@@ -49,8 +54,8 @@ function createTypoFromToken(
       {...props}
       size={Typography.fontSize[sizeKey]}
       weight={Typography.fontWeight[weightKey]}
+      lineHeight={Typography.lineHeight[sizeKey]}
       style={{
-        lineHeight: Typography.lineHeight[sizeKey],
         ...(props.style || {})
       }}
     />

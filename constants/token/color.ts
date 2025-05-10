@@ -3,6 +3,7 @@
 
 export const Color = {
     light: {
+        transparent: 'transparent',
         white: '#FFFFFF',
         black: '#000000',
         brand1: 'rgb(255, 235, 231)',
@@ -85,6 +86,7 @@ export const Color = {
         borderWarning: 'rgb(253, 230, 197)',
     },
     dark: {
+        transparent: 'transparent',
         white: '#FFFFFF',
         black: '#000000',
         brand1: 'rgb(42, 10, 9)',

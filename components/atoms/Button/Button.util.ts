@@ -34,8 +34,8 @@ export function getButtonColorByVariant(
       };
     case ButtonVariant.SECONDARY:
       return {
-        backgroundColor: Color[theme].gray20,
-        color: "textSecondary",
+        backgroundColor: Color[theme].white,
+        color: "textPrimary",
       };
     case ButtonVariant.DANGER:
       return {
@@ -83,7 +83,7 @@ export function getButtonStyleByVariant(
   switch (size) {
     case ButtonSize.LARGE:
       return {
-        height: 56,
+        height: 60,
         borderRadius: 14,
         fontSize: 17,
         paddingHorizontal: 20,

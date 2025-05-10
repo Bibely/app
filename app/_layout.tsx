@@ -37,6 +37,7 @@ export default function RootLayout() {
     PretendardMedium: require("../assets/fonts/Pretendard-Medium.otf"),
     PretendardSemibold: require("../assets/fonts/Pretendard-SemiBold.otf"),
     PretendardBold: require("../assets/fonts/Pretendard-Bold.otf"),
+    BookkMyungjo: require("../assets/fonts/BookkMyungjo.ttf"),
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -46,6 +47,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (loaded) {
+      console.log(loaded);
       SplashScreen.hideAsync();
     }
   }, [loaded]);

@@ -1,10 +1,10 @@
-export enum SocialLoginBrand {
-    GOOGLE = "google",
-    APPLE = "apple"
+export enum SocialLoginPlatform {
+	GOOGLE = "google",
+	APPLE = "apple",
 }
 
 export interface SocialLoginProps {
-    brand: SocialLoginBrand;
-    border?: boolean;
-    onPress: () => void;
+  platform: SocialLoginPlatform;
+  onPress: () => void;
+  fullWidth?: boolean;
 }
