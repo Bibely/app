@@ -1,8 +1,10 @@
-import { useTheme } from "@/hooks/useTheme";
-import { TypoProps } from "./Typo.type";
 import { Text, TextStyle } from "react-native";
+
+import { useTheme } from "@/hooks/useTheme";
 import { Color } from "@/constants/token/color";
 import { Typography } from "@/constants/token/typography";
+
+import { TypoProps } from "./Typo.type";
 
 function TypoBase(props: TypoProps) {
   const theme = useTheme();

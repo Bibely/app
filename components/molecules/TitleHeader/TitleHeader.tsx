@@ -1,13 +1,12 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { TitleHeaderProps } from "./TitleHeader.type";
-import { VStack } from "../../atoms/VStack";
-import { Typo } from "../../atoms/Typo";
-import { Icon } from "../../icon/glyph";
-import { useTheme } from "@/hooks/useTheme";
-import { Color } from "@/constants/token/color";
-import { Box } from "../../atoms/Box";
-import { useNavigation } from "expo-router";
-import { useEffect, useState } from "react";
+import { useNavigation } from 'expo-router';
+import { useState } from 'react';
+
+import { Box, Typo, VStack } from '@/components/atoms';
+import { Icon } from '@/components/icon/glyph';
+import { Color } from '@/constants/token/color';
+import { useTheme } from '@/hooks/useTheme';
+
+import { TitleHeaderProps } from './TitleHeader.type';
 
 export default function TitleHeader({
   children,
@@ -27,21 +26,12 @@ export default function TitleHeader({
         paddingHorizontal: 12,
         backgroundColor: Color[theme].surface,
       }}
-      justify={!showBackButton && !rightContent ? "center" : "space-between"}
+      justify={!showBackButton && !rightContent ? 'center' : 'space-between'}
       align="center"
     >
-      <VStack
-        align="center"
-        onLayout={(e) => setChevronWidth(e.nativeEvent.layout.width)}
-      >
-        <VStack
-          as="hoverable"
-          align="center"
-          onPress={() => navigation.goBack()}
-        >
-          {showBackButton && (
-            <Icon.chevronLeft size={40} color={Color[theme].textSecondary} />
-          )}
+      <VStack align="center" onLayout={e => setChevronWidth(e.nativeEvent.layout.width)}>
+        <VStack as="hoverable" align="center" onPress={() => navigation.goBack()}>
+          {showBackButton && <Icon.chevronLeft size={40} color={Color[theme].textSecondary} />}
           {backButtonText && (
             <Typo size={14} color="textSecondary" style={{ marginLeft: -6 }}>
               {backButtonText}

@@ -1,7 +1,7 @@
-import {Button, HStack, Typo, TypoWeight} from "@/components/atoms";
-import {SOCIAL_LOGIN_CONFIG} from "@/components/molecules/SocialLogin/SocialLogin.config";
-import {SocialLoginProps} from "@/components/molecules/SocialLogin/SocialLogin.type";
-import { Spacing } from "@/constants/token/spacing";
+import { Button, HStack, Typo, TypoWeight } from '@/components/atoms';
+import { SocialLoginProps } from '@/components/molecules';
+import { SOCIAL_LOGIN_CONFIG } from '@/components/molecules/SocialLogin/SocialLogin.config';
+import { Spacing } from '@/constants/token/spacing';
 
 export default function SocialLogin({ platform, onPress, fullWidth }: SocialLoginProps) {
   const { icon, label, color, variant } = SOCIAL_LOGIN_CONFIG[platform];

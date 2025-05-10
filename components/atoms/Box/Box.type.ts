@@ -1,6 +1,7 @@
+import { TouchableOpacityProps, ViewProps } from 'react-native';
+
 import { VariantColorType } from '@/types/color';
 import { ComponentPropsFull } from '@/types/components';
-import { TouchableOpacityProps, ViewProps } from 'react-native';
 
 export type BoxViewProps = {
     as?: 'view';

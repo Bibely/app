@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Svg, { Path } from 'react-native-svg';
+
 import { SVGProps } from '@/types/components';
 
 const Clock = (props: SVGProps) => {

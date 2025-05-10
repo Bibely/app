@@ -1,11 +1,13 @@
-import {ActivityIndicator, Animated, StyleSheet, TouchableOpacity,} from "react-native";
-import {ButtonProps, ButtonSize, ButtonVariant} from "./Button.type";
-import {getButtonColorByVariant, getButtonStyleByVariant,} from "./Button.util";
-import React from "react";
-import {useTheme} from "@/hooks/useTheme";
-import {useButtonAnimation} from "@/hooks/components";
-import {VariantColorType} from "@/types/color";
-import {Typo, TypoWeight} from "../Typo";
+import React from 'react';
+import { ActivityIndicator, Animated, StyleSheet, TouchableOpacity } from 'react-native';
+
+import { Typo, TypoWeight } from '@/components/atoms';
+import { useButtonAnimation } from '@/hooks/components';
+import { useTheme } from '@/hooks/useTheme';
+import { VariantColorType } from '@/types/color';
+
+import { ButtonProps, ButtonSize, ButtonVariant } from './Button.type';
+import { getButtonColorByVariant, getButtonStyleByVariant } from './Button.util';
 
 export default function Button({
   children,
@@ -28,7 +30,7 @@ export default function Button({
   const renderChildren = () => {
     if (React.isValidElement(children)) {
       return React.cloneElement(children);
-    } else if (typeof children === "string") {
+    } else if (typeof children === 'string') {
       return (
         <Typo
           size={ButtonStyle.size.fontSize}
@@ -49,9 +51,7 @@ export default function Button({
   };
 
   return (
-    <Animated.View
-      style={[{ transform: [{ scale: scaleAnim }] }, fullWidth && s.fullWidth]}
-    >
+    <Animated.View style={[{ transform: [{ scale: scaleAnim }] }, fullWidth && s.fullWidth]}>
       <TouchableOpacity
         style={[
           ButtonStyle.color,
@@ -68,10 +68,7 @@ export default function Button({
         activeOpacity={0.6}
       >
         {isPending ? (
-          <ActivityIndicator
-            size={24}
-            color={ButtonStyle.color.color}
-          />
+          <ActivityIndicator size={24} color={ButtonStyle.color.color} />
         ) : (
           renderChildren()
         )}
@@ -82,12 +79,12 @@ export default function Button({
 
 const s = StyleSheet.create({
   button: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   fullWidth: {
-    width: "100%",
+    width: '100%',
   },
   fullRadius: {
     borderRadius: 999,

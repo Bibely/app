@@ -1,6 +1,7 @@
 import { ThemeColorType, VariantColorType } from "@/types/color";
-import { BadgeVariant } from "./Badge.type";
 import { Color } from "@/constants/token/color";
+
+import { BadgeVariant } from "./Badge.type";
 
 /**
  * 뱃지의 배경색을 가져옵니다.

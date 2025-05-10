@@ -1,6 +1,7 @@
+import { TextStyle } from "react-native";
+
 import { VariantColorType } from "@/types/color";
 import { ComponentPropsForTest, WithChildren } from "@/types/components";
-import { TextStyle } from "react-native";
 
 export enum TypoWeight {
     Regular = 400,

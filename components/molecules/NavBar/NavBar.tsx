@@ -1,14 +1,16 @@
-import { VStack } from "@/components/atoms/VStack";
-import { WithChildren } from "@/types/components";
-import { Platform, StyleSheet } from "react-native";
-import { NavBarItemProps } from "./NavBar.type";
-import { HStack } from "@/components/atoms/HStack";
-import { Typo } from "@/components/atoms/Typo";
-import { useTheme } from "@/hooks/useTheme";
-import { Color } from "@/constants/token/color";
-import { cloneElement, isValidElement } from "react";
-import { VariantColorType } from "@/types/color";
-import { RelativePathString, useRouter } from "expo-router";
+import { useRouter } from 'expo-router';
+import { cloneElement, isValidElement } from 'react';
+import { Platform, StyleSheet } from 'react-native';
+
+import { HStack } from '@/components/atoms/HStack';
+import { Typo } from '@/components/atoms/Typo';
+import { VStack } from '@/components/atoms/VStack';
+import { Color } from '@/constants/token/color';
+import { useTheme } from '@/hooks/useTheme';
+import { VariantColorType } from '@/types/color';
+import { WithChildren } from '@/types/components';
+
+import { NavBarItemProps } from './NavBar.type';
 
 export default function NavBar({ children }: WithChildren) {
   const theme = useTheme();
@@ -34,7 +36,7 @@ function NavBarItem({ children, icon, screenName, selected }: NavBarItemProps) {
 
   const color = {
     icon: selected ? Color[theme].textBrand : Color[theme].textSecondary,
-    text: selected ? "textBrand" : "textSecondary",
+    text: selected ? 'textBrand' : 'textSecondary',
   };
 
   // Icon의 사이즈를 24로 고정
@@ -65,14 +67,14 @@ NavBar.Item = NavBarItem;
 
 const s = StyleSheet.create({
   container: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 0,
     zIndex: 1,
 
     paddingHorizontal: 16,
     paddingTop: 10,
 
-    paddingBottom: Platform.OS === "ios" ? 36 : 10, // iOS는 36px, Android는 24px
+    paddingBottom: Platform.OS === 'ios' ? 36 : 10, // iOS는 36px, Android는 24px
 
     borderTopWidth: 1,
   },

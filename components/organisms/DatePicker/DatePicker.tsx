@@ -1,27 +1,15 @@
-import DateTimePicker from "@react-native-community/datetimepicker";
-import { DatePickerProps } from "./DatePicker.type";
-import { useTheme } from "@/hooks/useTheme";
-import { useEffect, useState } from "react";
-import {
-  Box,
-  Button,
-  ButtonSize,
-  ButtonVariant,
-  HStack,
-  Typo,
-  VStack,
-} from "@/components/atoms";
-import {
-  Platform,
-  StyleSheet,
-  TouchableOpacity,
-  Dimensions,
-} from "react-native";
-import { Color } from "@/constants/token/color";
-import { DateTimePickerEvent } from "@react-native-community/datetimepicker";
-import { Icon } from "@/components/icon/glyph";
+import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import { useState } from 'react';
+import { Dimensions, Platform, StyleSheet, TouchableOpacity } from 'react-native';
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
+import { Box, Button, ButtonSize, ButtonVariant, HStack, Typo, VStack } from '@/components/atoms';
+import { Icon } from '@/components/icon/glyph';
+import { Color } from '@/constants/token/color';
+import { useTheme } from '@/hooks/useTheme';
+
+import { DatePickerProps } from './DatePicker.type';
+
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 export default function DatePicker({
   value = new Date(),
@@ -39,10 +27,10 @@ export default function DatePicker({
 
   // 날짜를 포맷팅하는 함수
   const formatDate = (date: Date) => {
-    return date.toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+    return date.toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     });
   };
 
@@ -63,7 +51,7 @@ export default function DatePicker({
     // onChange 콜백 호출
     if (onChange) {
       const event: DateTimePickerEvent = {
-        type: "set",
+        type: 'set',
         nativeEvent: {
           timestamp: newDate.getTime(),
           utcOffset: newDate.getTimezoneOffset(),
@@ -76,7 +64,7 @@ export default function DatePicker({
   // 안드로이드용 onChange 핸들러
   const handleAndroidChange = (event: DateTimePickerEvent, date?: Date) => {
     setShow(false);
-    if (event.type === "dismissed" || !date) return;
+    if (event.type === 'dismissed' || !date) return;
     updateDate(date);
   };
 
@@ -113,13 +101,13 @@ export default function DatePicker({
             borderWidth: show ? 2 : 1,
             opacity: disabled ? 0.5 : 1,
             backgroundColor: Color[theme].surface,
-            width: fullWidth ? "100%" : "auto",
+            width: fullWidth ? '100%' : 'auto',
             borderRadius: fullRadius ? 999 : 16,
           },
         ]}
       >
         <Icon.calender size={24} color={Color[theme].textSecondary} />
-        <Typo size={15} color={disabled ? "textDisabled" : "text"} weight={400}>
+        <Typo size={15} color={disabled ? 'textDisabled' : 'text'} weight={400}>
           {formatDate(value)}
         </Typo>
       </VStack>
@@ -127,7 +115,7 @@ export default function DatePicker({
       {/* DatePicker */}
       {show && (
         <>
-          {Platform.OS === "android" ? (
+          {Platform.OS === 'android' ? (
             <DateTimePicker
               value={selectedDate}
               onChange={handleAndroidChange}
@@ -154,12 +142,12 @@ export default function DatePicker({
                 align="center"
                 justify="center"
                 gap={6}
-                onLayout={(e) => setModalHeight(e.nativeEvent.layout.height)}
+                onLayout={e => setModalHeight(e.nativeEvent.layout.height)}
               >
                 <DateTimePicker
                   value={selectedDate}
                   onChange={(event, date) => {
-                    if (Platform.OS === "ios") {
+                    if (Platform.OS === 'ios') {
                       handleIOSChange(event, date);
                     } else {
                       handleAndroidChange(event, date);
@@ -205,15 +193,15 @@ const s = StyleSheet.create({
     height: 56,
     borderRadius: 16,
     paddingHorizontal: 14,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   backdrop: {
-    position: "absolute",
+    position: 'absolute',
     top: -SCREEN_HEIGHT,
     left: -SCREEN_WIDTH,
     right: -SCREEN_WIDTH,
     bottom: -SCREEN_HEIGHT,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     zIndex: 100,
   },
   iosPickerContainer: {
@@ -223,7 +211,7 @@ const s = StyleSheet.create({
     borderRadius: 22,
     borderWidth: 1,
 
-    position: "absolute",
+    position: 'absolute',
     left: 20,
     right: 20,
     zIndex: 101,

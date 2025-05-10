@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { Text, SafeAreaView } from 'react-native';
+
 import {
     Badge,
     BadgeSize,
@@ -21,10 +24,7 @@ import {
     SocialLoginBrand,
     TitleHeader,
 } from '@/components/molecules';
-import React, { useState } from 'react';
-import { Text, SafeAreaView } from 'react-native';
 import { DatePicker } from '@/components/organisms';
-
 import Dummy from '@/assets/images/dummy/cat.jpg';
 
 export default function HomeScreen() {

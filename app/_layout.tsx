@@ -1,5 +1,3 @@
-import { Color } from "@/constants/token/color";
-import { useTheme } from "@/hooks/useTheme";
 import {
   DarkTheme,
   DefaultTheme,
@@ -10,6 +8,9 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
+
+import { useTheme } from "@/hooks/useTheme";
+import { Color } from "@/constants/token/color";
 import "react-native-reanimated";
 
 const CustomDefaultTheme = {

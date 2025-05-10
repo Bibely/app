@@ -1,18 +1,14 @@
-import { useTheme } from "@/hooks/useTheme";
-import { SegmentProps } from "./Segment.type";
-import { useCallback } from "react";
-import { VStack } from "@/components/atoms/VStack";
-import { StyleSheet } from "react-native";
-import { Color } from "@/constants/token/color";
-import { Box } from "@/components/atoms/Box";
-import { Typo } from "@/components/atoms/Typo";
+import { useCallback } from 'react';
+import { StyleSheet } from 'react-native';
 
-export default function Segment({
-  options,
-  value,
-  onChange,
-  disabled,
-}: SegmentProps) {
+import { Box } from '@/components/atoms/Box';
+import { Typo } from '@/components/atoms/Typo';
+import { VStack } from '@/components/atoms/VStack';
+import { useTheme } from '@/hooks/useTheme';
+
+import { SegmentProps } from './Segment.type';
+
+export default function Segment({ options, value, onChange, disabled }: SegmentProps) {
   const theme = useTheme();
 
   const handlePress = useCallback(
@@ -20,32 +16,25 @@ export default function Segment({
       if (disabled) return;
       onChange(selectedValue);
     },
-    [disabled, onChange]
+    [disabled, onChange],
   );
 
   return (
     <VStack style={s.container} gap={4} bgColor="surfaceSecondary">
-      {options.map((option) => {
+      {options.map(option => {
         const isSelected = option.value === value;
 
         return (
           <Box
-            as={isSelected ? "view" : "hoverable"}
+            as={isSelected ? 'view' : 'hoverable'}
             justify="center"
             align="center"
             key={option.value}
             bgColor={
-              isSelected
-                ? theme === "light"
-                  ? "surface"
-                  : "surfaceTertiary"
-                : "surfaceSecondary"
+              isSelected ? (theme === 'light' ? 'surface' : 'surfaceTertiary') : 'surfaceSecondary'
             }
             style={{
-              boxShadow:
-                isSelected && theme === "light"
-                  ? "0 0 5px #00000010"
-                  : undefined,
+              boxShadow: isSelected && theme === 'light' ? '0 0 5px #00000010' : undefined,
               ...s.segment,
             }}
             onPress={() => handlePress(option.value)}

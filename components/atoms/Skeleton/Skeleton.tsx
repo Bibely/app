@@ -1,20 +1,22 @@
-import React, { useEffect } from "react";
-import { DimensionValue, View, Dimensions } from "react-native";
+import React, { useEffect } from 'react';
+import { Dimensions } from 'react-native';
 import Animated, {
   useAnimatedStyle,
+  useSharedValue,
   withRepeat,
   withSequence,
   withTiming,
-  useSharedValue,
-} from "react-native-reanimated";
-import { useTheme } from "@/hooks/useTheme";
-import { Color } from "@/constants/token/color";
-import { SkeletonProps } from "./Skeleton.type";
+} from 'react-native-reanimated';
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
+import { useTheme } from '@/hooks/useTheme';
+import { Color } from '@/constants/token/color';
+
+import { SkeletonProps } from './Skeleton.type';
+
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 export default function Skeleton({
-  width = "100%",
+  width = '100%',
   height = 20,
   borderRadius = 6,
   style,
@@ -27,18 +29,13 @@ export default function Skeleton({
 
   const finalWidth = fullWidth ? SCREEN_WIDTH : width;
   const finalHeight = fullHeight ? SCREEN_HEIGHT : height;
-  const finalRadius = fullRadius
-    ? Math.min(SCREEN_WIDTH, SCREEN_HEIGHT) / 2
-    : borderRadius;
+  const finalRadius = fullRadius ? Math.min(SCREEN_WIDTH, SCREEN_HEIGHT) / 2 : borderRadius;
 
   useEffect(() => {
     opacity.value = withRepeat(
-      withSequence(
-        withTiming(1, { duration: 500 }),
-        withTiming(0.5, { duration: 500 })
-      ),
+      withSequence(withTiming(1, { duration: 500 }), withTiming(0.5, { duration: 500 })),
       -1,
-      true
+      true,
     );
   }, []);
 

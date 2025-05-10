@@ -1,7 +1,9 @@
-import { TextStyle, ViewStyle } from "react-native";
-import { ButtonSize, ButtonVariant } from "./Button.type";
-import { Color } from "@/constants/token/color";
-import { ThemeColorType, VariantColorType } from "@/types/color";
+import { TextStyle, ViewStyle } from 'react-native';
+
+import { Color } from '@/constants/token/color';
+import { ThemeColorType } from '@/types/color';
+
+import { ButtonSize, ButtonVariant } from './Button.type';
 
 /**
  * 버튼 variant에 따른 색상 스타일을 반환하는 함수
@@ -24,44 +26,44 @@ import { ThemeColorType, VariantColorType } from "@/types/color";
  */
 export function getButtonColorByVariant(
   variant: ButtonVariant,
-  theme: ThemeColorType
+  theme: ThemeColorType,
 ): ViewStyle & TextStyle {
   switch (variant) {
     case ButtonVariant.BRAND:
       return {
         backgroundColor: Color[theme].brand50,
-        color: "white",
+        color: 'white',
       };
     case ButtonVariant.SECONDARY:
       return {
         backgroundColor: Color[theme].white,
-        color: "textPrimary",
+        color: 'textPrimary',
       };
     case ButtonVariant.DANGER:
       return {
         backgroundColor: Color[theme].error50,
-        color: "white",
+        color: 'white',
       };
     case ButtonVariant.SUCCESS:
       return {
         backgroundColor: Color[theme].success50,
-        color: "white",
+        color: 'white',
       };
     case ButtonVariant.WARNING:
       return {
         backgroundColor: Color[theme].warning50,
-        color: "black",
+        color: 'black',
       };
     case ButtonVariant.TEXT:
       return {
-        backgroundColor: "transparent",
-        color: "text",
+        backgroundColor: 'transparent',
+        color: 'text',
         padding: 10,
         borderRadius: 5,
       };
     default:
       return {
-        backgroundColor: "blue",
+        backgroundColor: 'blue',
         padding: 10,
         borderRadius: 5,
       };
@@ -77,9 +79,7 @@ export function getButtonColorByVariant(
  *   - SMALL: 높이 38px, 테두리 반경 8px, 폰트 크기 12px, 가로 패딩 12px
  *   - default: 높이 30px
  */
-export function getButtonStyleByVariant(
-  size: ButtonSize
-): ViewStyle & TextStyle {
+export function getButtonStyleByVariant(size: ButtonSize): ViewStyle & TextStyle {
   switch (size) {
     case ButtonSize.LARGE:
       return {

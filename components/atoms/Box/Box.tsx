@@ -1,7 +1,9 @@
 import { TouchableOpacity, View, ViewStyle } from "react-native";
-import { BoxProps } from "./Box.type";
+
 import { Color } from "@/constants/token/color";
 import { useTheme } from "@/hooks/useTheme";
+
+import { BoxProps } from "./Box.type";
 
 export default function Box({
   bgColor,
